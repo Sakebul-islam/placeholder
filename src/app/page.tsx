@@ -230,7 +230,7 @@ export default function Home() {
         }
 
         // Fill background with a soft cyan
-        ctx.fillStyle = "#CFFAFE"; // equivalent to cyan-100
+        ctx.fillStyle = "#fff"; // equivalent to cyan-100
         ctx.fillRect(0, 0, canvas.width, canvas.height);
 
         // Prepare text with a dark teal
@@ -240,7 +240,7 @@ export default function Home() {
           Math.min(canvas.width / 10, canvas.height / 5, 100)
         );
         ctx.font = `bold ${fontSize}px sans-serif`;
-        ctx.fillStyle = "#115E59"; // equivalent to teal-800
+        ctx.fillStyle = "#000"; // equivalent to teal-800
         ctx.textAlign = "center";
         ctx.textBaseline = "middle";
         ctx.fillText(text, canvas.width / 2, canvas.height / 2);
