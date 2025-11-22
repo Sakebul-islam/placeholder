@@ -230,7 +230,7 @@ export default function Home() {
         }
 
         // Fill background with a soft cyan
-        ctx.fillStyle = "#fff"; // equivalent to cyan-100
+        ctx.fillStyle = "#bcbcbc"; // equivalent to cyan-100
         ctx.fillRect(0, 0, canvas.width, canvas.height);
 
         // Prepare text with a dark teal
