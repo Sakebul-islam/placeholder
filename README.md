@@ -1,36 +1,72 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Placeholder Generator
 
-## Getting Started
+A browser tool that turns a folder of real images into same-size placeholder images and downloads them as a ZIP.
 
-First, run the development server:
+## Live demo
+
+[placeholder-sooty.vercel.app](https://placeholder-sooty.vercel.app)
+
+## Features
+
+- Pick a whole folder of images. Sub-folder paths are kept.
+- Only image files are added to the queue. Other files are ignored.
+- Each image becomes a grey placeholder with the same width and height, labelled with its size (for example `1200 x 800`).
+- Placeholders are drawn on an HTML canvas and saved as PNG data.
+- Mark an image as "Skip" to keep the original file in the ZIP. "Skip All" toggles every image.
+- Queue list with thumbnails, file paths and file type badges.
+- Progress bar and status messages while it works.
+- The result downloads as `placeholder-images.zip`, with the original folder structure.
+- All processing runs in your browser. Images are not uploaded.
+
+## How it works
+
+1. Click **Browse Files** and choose a folder.
+2. Mark any images you want to keep as they are with **Skip**.
+3. Click **Generate & Create ZIP**.
+
+Note: placeholders keep the original file names, so a `.jpg` file in the ZIP will contain PNG image data.
+
+## Tech stack
+
+- [Next.js](https://nextjs.org) 15 (App Router, Turbopack in dev)
+- React 19 and TypeScript
+- Tailwind CSS 4
+- JSZip (loaded from cdnjs at runtime)
+- Lucide icons
+
+## Getting started
 
 ```bash
+git clone https://github.com/Sakebul-islam/placeholder.git
+cd placeholder
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+No environment variables are needed.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Other scripts
 
-## Learn More
+```bash
+npm run build   # production build
+npm run start   # start the production server
+npm run lint    # run next lint
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Project structure
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+placeholder/
+├── public/
+└── src/
+    └── app/
+        ├── globals.css
+        ├── layout.tsx   # page metadata (SEO, Open Graph)
+        └── page.tsx     # the whole tool: queue, canvas drawing, ZIP
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Author
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Built by [Sakebul Islam](https://sakebul.com) · [LinkedIn](https://www.linkedin.com/in/sakebul-islam)
